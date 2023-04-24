@@ -33,4 +33,10 @@ public class EmployeeService {
 		return andView;
 	}
 
+	public ModelAndView fetch() {
+		ModelAndView andView = new ModelAndView("Result.jsp");
+		andView.addObject("list", dao.fetch());
+		return andView;
+	}
+
 }

@@ -5,7 +5,7 @@
 <h1 style="color:red"> ${msg} </h1>
 <h1>Employee CRUD Operation</h1><br>
 <a href="loademployee"><button>Insert Data</button></a><br>
-<a href=""><button>Fetch All Data</button></a><br>
+<a href="fetchall"><button>Fetch All Data</button></a><br>
 <a href=""><button>Fetch Data By Id</button></a><br>
 </body>
 </html>
