@@ -32,5 +32,11 @@ public class EmployeeController {
 	public ModelAndView fetch() {
 		return service.fetch();
 	}
+	
+	@GetMapping("delete")
+	public ModelAndView delete(@RequestParam int id)
+	{
+		return service.delete(id);
+	}
 
 }

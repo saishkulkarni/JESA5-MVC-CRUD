@@ -6,6 +6,5 @@
 <h1>Employee CRUD Operation</h1><br>
 <a href="loademployee"><button>Insert Data</button></a><br>
 <a href="fetchall"><button>Fetch All Data</button></a><br>
-<a href=""><button>Fetch Data By Id</button></a><br>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package mvc.service;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,11 +35,36 @@ public class EmployeeService {
 	}
 
 	public ModelAndView fetch() {
-		ModelAndView andView = new ModelAndView("Result.jsp");
-		andView.addObject("list", dao.fetch());
+		ModelAndView andView = new ModelAndView();
+		List<Employee> list=dao.fetch();
+		if(list.isEmpty())
+		{
+		andView.addObject("msg", "Data Not Found");
+		andView.setViewName("index.jsp");	
+		}
+		else
+		{
+		andView.addObject("list", list);
+		andView.setViewName("Result.jsp");
+		}
+		return andView;
+	}
+
+	public ModelAndView delete(int id) {
+		ModelAndView andView=new ModelAndView("Result.jsp");
+		dao.delete(id);
+		List<Employee> list=dao.fetch();
+		if(list.isEmpty())
+		{
+		andView.addObject("msg", "Data Not Found");
+		andView.setViewName("index.jsp");	
+		}
+		else
+		{
+		andView.addObject("list", list);
+		andView.addObject("msg", "Data deleted successfully");    
+		}
 		return andView;
 	}
 	
-	
-
 }

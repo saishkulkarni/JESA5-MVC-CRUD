@@ -26,4 +26,10 @@ public class EmployeeDao {
 	{
 		return manager.createQuery("select x from Employee x").getResultList();
 	}
+
+	public void delete(int id) {
+		manager.getTransaction().begin();
+		manager.remove( manager.find(Employee.class,id));
+		manager.getTransaction().commit();
+	}
 }

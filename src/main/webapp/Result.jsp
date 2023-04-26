@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>${msg }</h1>
 <h1>Employee Details are </h1>
 <br>
 <table border="1">
