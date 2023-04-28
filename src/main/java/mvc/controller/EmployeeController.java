@@ -1,5 +1,7 @@
 package mvc.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,4 +41,13 @@ public class EmployeeController {
 		return service.delete(id);
 	}
 
+	@RequestMapping("edit")
+	public ModelAndView editEmployee(@RequestParam int id) {
+		return service.editEmployee(id);
+	}
+	
+	@PostMapping("updateemployee")
+	public ModelAndView updateEmployee(@ModelAttribute Employee emp, @RequestParam String date) {
+		return service.updateEmployee(emp, date);
+	}
 }

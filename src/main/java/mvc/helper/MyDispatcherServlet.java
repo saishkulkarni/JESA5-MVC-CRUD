@@ -2,8 +2,7 @@ package mvc.helper;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class MyDispatcherServlet extends AbstractAnnotationConfigDispatcherServletInitializer
-{
+public class MyDispatcherServlet extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
@@ -14,14 +13,14 @@ public class MyDispatcherServlet extends AbstractAnnotationConfigDispatcherServl
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		// TODO Auto-generated method stub
-		Class[] x= {MyConfiguration.class};
+		Class[] x = { MyConfiguration.class };
 		return x;
 	}
 
 	@Override
 	protected String[] getServletMappings() {
 		// TODO Auto-generated method stub
-		String[] x={"/"};
+		String[] x = { "/" };
 		return x;
 	}
 

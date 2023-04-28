@@ -31,12 +31,11 @@
 <th>${emp.getMobile() }</th>
 <th>${emp.getSalary() }</th>
 <th>${emp.getDoj()}</th>
-<th><button>Edit</button> </th>
+<th><a href="edit?id=${emp.getId()}"><button>Edit</button></a></th>
 <th><a href="delete?id=${emp.getId()}"><button>Delete</button></a></th>
 </tr>
 
 </x:forEach>
-
 </table>
 </body>
 </html>

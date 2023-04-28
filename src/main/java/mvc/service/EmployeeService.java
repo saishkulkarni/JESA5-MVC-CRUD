@@ -20,7 +20,7 @@ public class EmployeeService {
 	EmployeeDao dao;
 
 	public ModelAndView loadEmployee() {
-		ModelAndView andView = new ModelAndView("Insert.jsp");
+		ModelAndView andView = new ModelAndView("Insert");
 		andView.addObject("emp", employee);
 		return andView;
 	}
@@ -29,7 +29,7 @@ public class EmployeeService {
 		emp.setDoj(Date.valueOf(date));
 		dao.save(emp);
 
-		ModelAndView andView = new ModelAndView("index.jsp");
+		ModelAndView andView = new ModelAndView("index");
 		andView.addObject("msg", "Data Added Successfully");
 		return andView;
 	}
@@ -40,12 +40,12 @@ public class EmployeeService {
 		if(list.isEmpty())
 		{
 		andView.addObject("msg", "Data Not Found");
-		andView.setViewName("index.jsp");	
+		andView.setViewName("index");	
 		}
 		else
 		{
 		andView.addObject("list", list);
-		andView.setViewName("Result.jsp");
+		andView.setViewName("Result");
 		}
 		return andView;
 	}
@@ -57,7 +57,7 @@ public class EmployeeService {
 		if(list.isEmpty())
 		{
 		andView.addObject("msg", "Data Not Found");
-		andView.setViewName("index.jsp");	
+		andView.setViewName("index");	
 		}
 		else
 		{
@@ -66,5 +66,22 @@ public class EmployeeService {
 		}
 		return andView;
 	}
+
+	public ModelAndView editEmployee(int id) {
+		ModelAndView andView=new ModelAndView("Edit");
+		andView.addObject("emp", dao.find(id));
+		return andView;
+	}
+
+	public ModelAndView updateEmployee(Employee emp, String date) {
+		emp.setDoj(Date.valueOf(date));
+		dao.update(emp);
+
+		ModelAndView andView = new ModelAndView("Result");
+		andView.addObject("list", dao.fetch());
+		andView.addObject("msg", "Data updated successfully"); 
+		return andView;
+	}
+	
 	
 }
